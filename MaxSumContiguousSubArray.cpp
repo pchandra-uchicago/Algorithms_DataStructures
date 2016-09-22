@@ -11,12 +11,10 @@ using namespace std;
 int maxSubArray(const vector<int> &A)
 {
 	int old_sum = 0; int new_sum = 0; int count = 0;
-
 	if (A.size() <= 1)
 	{
 		return A[0];
 	}
-
 	for (int i = 0; i != A.size(); i++)
 	{
 		new_sum = new_sum + A[i];

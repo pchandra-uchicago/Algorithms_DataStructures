@@ -10,11 +10,9 @@ using namespace std;
 int coverPoints(vector<int> &X, vector<int> &Y)
 {
 	int stepCount = 0;
-
 	int startPointX = X.front(); int startPointY = Y.front();
 
 	vector<int>::iterator i = X.begin() ; vector<int>::iterator j = Y.begin();
-
 	*i++; *j++;
 
 	while (i != X.end())
@@ -75,7 +73,6 @@ int coverPoints(vector<int> &X, vector<int> &Y)
 				}
 			}
 		}
-
 		*i++; *j++;
 	}
 	return stepCount;
@@ -109,7 +106,6 @@ int main()
 	Y.push_back(1);
 
 	cout << "The min step count required is : " << coverPointsSoln(X, Y);
-
 	_getch();
 	return 0;
 }

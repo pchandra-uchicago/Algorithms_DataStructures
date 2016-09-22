@@ -9,7 +9,6 @@ using namespace std;
 vector<int> addPlusOne(vector<int> &A)
 {
 	int carry = 0; 	vector<int> result;
-
 	for(int i = A.size() - 1; i >= 0; i--)
 	{
 		if (i == A.size() - 1)
@@ -47,7 +46,6 @@ vector<int> addPlusOne(vector<int> &A)
 		}
 	}
 	std::reverse(result.begin(), result.end());
-
 	while (result.size() > 1 && result[0] == 0)
 	{
 		result.erase(result.begin());

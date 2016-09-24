@@ -11,7 +11,7 @@ vector<vector<int> > generateMatrix(int A)
 	vector<vector<int>> result(A);
 	int dir = 0; int num = 1;
 	int top = 0; int bottom = A- 1; int left = 0; int right = A - 1;
-
+	/*creates a dummy 2d vector in matrix form*/
 	for (int i = top; i <= bottom; i++)
 	{
 		result[i].resize(A);

@@ -54,30 +54,3 @@ int main()
 	_getch();
 	return 0;
 }
-
-void insert(vector<int> &v, int index, int val) {
-	if (index >= v.size()) {
-		v.push_back(val);
-	}
-	else {
-		v[index] = val;
-	}
-}
-vector<int> getRow(int rowIndex) {
-	vector<int> ans[2];
-	int numRows = rowIndex + 1;
-	if (numRows <= 0) {
-		return ans[0];
-	}
-	int curRow = 0, prevRow = 1;
-	ans[0].push_back(1);
-	for (int i = 1; i < numRows; i++) {
-		swap(curRow, prevRow);
-		insert(ans[curRow], 0, 1);
-		for (int j = 0; j < ans[prevRow].size() - 1; j++) {
-			insert(ans[curRow], j + 1, ans[prevRow][j] + ans[prevRow][j + 1]);
-		}
-		insert(ans[curRow], ans[prevRow].size(), 1);
-	}
-	return ans[curRow];
-}

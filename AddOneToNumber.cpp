@@ -6,48 +6,37 @@
 
 using namespace std;
 
-vector<int> addPlusOne(vector<int> &A)
-{
+vector<int> addPlusOne(vector<int> &A) {
 	int carry = 0; 	vector<int> result;
-	for(int i = A.size() - 1; i >= 0; i--)
-	{
-		if (i == A.size() - 1)
-		{
-			if (A[i] + 1 > 9)
-			{
+	for(int i = A.size() - 1; i >= 0; i--) {
+		if (i == A.size() - 1) {
+			if (A[i] + 1 > 9) {
 				result.push_back(0);
 				carry = 1;
-				if (A.size() == 1)
-				{
+				if (A.size() == 1) {
 					result.push_back(carry);
 				}
 			}
-			else 
-			{
+			else {
 				result.push_back(A[i] + 1);
 			}
 		}			
-		else
-		{			
-			if (A[i] + carry > 9)
-			{
+		else {			
+			if (A[i] + carry > 9) {
 				carry = 1;
 				result.push_back(0);
-				if (i==0)
-				{
+				if (i==0) {
 					result.push_back(1);
 				}
 			}
-			else
-			{
+			else {
 				result.push_back(A[i] + carry);
 				carry = 0;
 			}			
 		}
 	}
 	std::reverse(result.begin(), result.end());
-	while (result.size() > 1 && result[0] == 0)
-	{
+	while (result.size() > 1 && result[0] == 0) {
 		result.erase(result.begin());
 	}
 	return result;
@@ -84,8 +73,7 @@ int main()
 	input.push_back(9);
 
 	vector<int> result = addPlusOne(input);
-	for (vector<int>::iterator i = result.begin(); i != result.end(); i++)
-	{
+	for (vector<int>::iterator i = result.begin(); i != result.end(); i++) {
 		cout << *i << ' ';
 	}
 	_getch();

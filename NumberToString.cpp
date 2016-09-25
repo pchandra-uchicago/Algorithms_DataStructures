@@ -7,70 +7,50 @@ using namespace std;
 
 string finalString = "";
 
-string convertNumberToString(string inputNumber)
-{
+string convertNumberToString(string inputNumber){
 	int stringSize = inputNumber.length();
-
 	int num_dec = stoi(inputNumber);
-
-	string tenMultiples[] = {" ","ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eigty", "ninty"};
-
-	string unitDigits[] = {" ", "One", "Two", "three", "four", "five", "six", "seven", "eight", "nine"};
-
-	string two_digits[] = {"", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
-
 	string strdigit;
+	string tenMultiples[] = {" ","ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eigty", "ninty"};
+	string unitDigits[] = {" ", "One", "Two", "three", "four", "five", "six", "seven", "eight", "nine"};
+	string two_digits[] = {"", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};	
 
-	if(stringSize > 2)
-	{
-		string str = inputNumber.substr(stringSize-3);
-				
-		if(num_dec%100 >= 10 && num_dec%100 <= 19 )
-		{
+	if(stringSize > 2) {
+		string str = inputNumber.substr(stringSize-3);				
+		if(num_dec%100 >= 10 && num_dec%100 <= 19 ) {
 			strdigit = unitDigits[(str.at(0) - '0')] + " " + "hundred" + " " + two_digits[(num_dec%10) +1];
 		}
-		else
-		{		
+		else {		
 			strdigit = unitDigits[(str.at(0) - '0')] + " " + "hundred" + " " + tenMultiples[(str.at(1) - '0')] + " " + 
 																									unitDigits[(str.at(2) - '0')];
 		}		
 	}
-	else
-	{
-		if(num_dec > 20)
-		{
+	else  {
+		if(num_dec > 20) {
 			strdigit = tenMultiples[(inputNumber.at(0) - '0')] + " " + unitDigits[(inputNumber.at(1) - '0')];
 		}
-		else if(num_dec < 10)
-		{
+		else if(num_dec < 10) {
 			strdigit = unitDigits[(inputNumber.at(0) - '0')];
 		}
-		else
-		{
+		else {
 			strdigit = two_digits[(num_dec%10) +1];
 		}
 	}
 	return strdigit;		
 }
 
-string dealsWithLargeNumbers(string inputNumber)
-{
+string dealsWithLargeNumbers(string inputNumber) {
 	int stringSize = inputNumber.length();
-
 	static int count = 0;
-
 	string newStr,  str;
 
-	if(stringSize >= 3)
-	{
+	if(stringSize >= 3) {
 		 str = inputNumber.substr(stringSize-3);
 	}
-	else
-	{
+	else {
 		str = inputNumber;
 	}
-	switch(count)
-	{
+	switch(count) {
 		case 0 : finalString = convertNumberToString(str) + " " + finalString;
 			break;
 		case 1: finalString = convertNumberToString(str) + " " + "thousand" +  " " + finalString;
@@ -82,12 +62,9 @@ string dealsWithLargeNumbers(string inputNumber)
 		default: cout << " That's a little too much";
 			break;
 	}	
-	if(stringSize > 3)
-	{
+	if(stringSize > 3) {
 		str = inputNumber.erase(stringSize-3);
-
 		count ++ ;
-
 		dealsWithLargeNumbers(str) ;
 	}
 	return finalString;

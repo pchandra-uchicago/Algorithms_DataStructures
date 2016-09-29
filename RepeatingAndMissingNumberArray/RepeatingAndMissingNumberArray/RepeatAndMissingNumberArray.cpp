@@ -8,14 +8,7 @@ using namespace std;
 
 vector<int> repeatedNumber(const vector<int> &A)
 {
-	/*copy one vector A to another new vector result*/
-	//vector<int> result(A);
-
-	/*sort the elements in the vector*/
-	//std::sort(result.begin(), result.end());
-
-	long max_num = *(max_element(A.begin(), A.end()));
-	
+	long max_num = *(max_element(A.begin(), A.end()));	
 	vector<int> result;
 
 	long actualSum = 0, NSum = ((long long)max_num * (long long)(max_num+1))/2, missingNum = 0, dupeNum = 0;
@@ -23,8 +16,7 @@ vector<int> repeatedNumber(const vector<int> &A)
 	long NSumsquare = ((long long)max_num * (long long)(max_num + 1) * (2 * (long long)max_num + 1)) / 6;
 	long actualSumsquare = 0;
 
-	for (int i = 0; i <= A.size()-1; i++)
-	{
+	for (int i = 0; i <= A.size()-1; i++) {
 		actualSum += (long long)A[i];
 		actualSumsquare += (long long) A[i] * (long long) A[i];
 	}
@@ -32,7 +24,6 @@ vector<int> repeatedNumber(const vector<int> &A)
 	dupeNum = ((long long)(actualSum - NSum) + ((long long)(actualSumsquare -NSumsquare)/ (long long)(actualSum - NSum)))/2;
 
 	missingNum = dupeNum - (long long)(actualSum - NSum);
-
 	result.push_back(int(dupeNum));
 	result.push_back(int(missingNum));
 

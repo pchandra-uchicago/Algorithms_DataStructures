@@ -12,7 +12,6 @@ int binarySearch(const vector<int> &A, int n, int x, bool searchFirst) {
 		mid = (low + (high - low) / 2);
 		if (A[mid] == x) {
 			result = mid;
-
 			if (searchFirst) {
 				high = mid - 1;
 			}

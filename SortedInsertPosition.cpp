@@ -6,13 +6,10 @@
 
 using namespace std;
 
-int searchInsert(vector<int> &A, int B)
-{	
+int searchInsert(vector<int> &A, int B) {	
 	int low = 0, high = A.size() - 1, mid, result = -1;
-
 	while (low <= high) {
 		mid = (low + (high - low) / 2);
-
 		if (A[mid] == B) {
 			return mid;
 		}

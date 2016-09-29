@@ -18,6 +18,7 @@ int sqrtSoln(int A) {
 	return (divisor - 1);
 }
 
+/* Newton Raphson method*/
 int sqrt(int A) {
 	if (A <= 0)	{
 		return 0;

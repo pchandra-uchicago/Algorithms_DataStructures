@@ -6,8 +6,7 @@
 
 using namespace std;
 
-int sqrtSoln(int A)
-{
+int sqrtSoln(int A) {
 	int remainder = A, divisor = 1;
 	while (remainder > divisor) {
 		remainder = A - pow(divisor, 2);
@@ -20,13 +19,11 @@ int sqrtSoln(int A)
 }
 
 int sqrt(int A) {
-
 	if (A <= 0)	{
 		return 0;
 	}
 	double x1 = (A * 1.0) / 2;
 	double x2 = (x1 + (A / x1)) / 2;
-
 	while (abs(x1 - x2) >= 0.0000001) {
 		x1 = x2;
 		x2 = (x1 + (A / x1)) / 2;

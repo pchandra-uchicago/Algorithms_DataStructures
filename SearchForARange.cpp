@@ -8,10 +8,8 @@ using namespace std;
 
 int binarySearch(const vector<int> &A, int n, int x, bool searchFirst) {
 	int low = 0, high = n - 1, mid, result = -1;
-
 	while (low <= high) {
 		mid = (low + (high - low) / 2);
-
 		if (A[mid] == x) {
 			result = mid;
 
@@ -47,10 +45,8 @@ int main()
 	A.push_back(7);
 	A.push_back(8);
 	A.push_back(8);
-	A.push_back(10);	*/
-
+	A.push_back(10); */	
 	searchRange(A, 1);
-
 	_getch();
 	return 0;
 }

@@ -6,34 +6,24 @@
 
 using namespace std;
 
-vector<int> maxset(vector<int> &A)
-{
+vector<int> maxset(vector<int> &A) {
 	int old_sum = 0; int new_sum = 0; int startIndex = 0;
 	int indexLast = 0;
 	bool flag = true;
 	vector<int> sum; vector<int> startIdx; vector<int> endIdx;
-
-	for (int i = 0; i <= A.size() - 1; i++)
-	{
-		if (flag)
-		{
+	
+	for (int i = 0; i <= A.size() - 1; i++)	{
+		if (flag) {
 			startIndex = i;
 		}
-		int temp = A.size() - 1;
-		int num = A[i];
-
-		if (A[i] > 0)
-		{			
+		if (A[i] > 0) {			
 			new_sum = new_sum + A[i];
 			flag = false;
-
-			if (i == A.size() -1)
-			{
+			if (i == A.size() -1) {
 				indexLast = i;
 			}
 		}
-		else
-		{			
+		else {			
 			sum.push_back(new_sum);
 			startIdx.push_back(startIndex);
 			endIdx.push_back(i - 1);
@@ -41,21 +31,15 @@ vector<int> maxset(vector<int> &A)
 			new_sum = 0;
 		}
 	}
-
-	if (new_sum > 0)
-	{
+	if (new_sum > 0) {
 		sum.push_back(new_sum);
 		startIdx.push_back(startIndex);
 		endIdx.push_back(indexLast);
-	}
-	
-	vector<int> result; int largest = 0;
-	
-	for (int i = 0; i <= sum.size() - 1; i++)
-	{
+	}	
+	vector<int> result; int largest = 0;	
+	for (int i = 0; i <= sum.size() - 1; i++) {
 		largest = *(max_element(sum.begin(), sum.end()));
 	}
-
 	return result;
 }
 
@@ -112,9 +96,7 @@ int main()
 	input.push_back(3);
 
 	vector<int> result = maxset(input);
-
-	for (vector<int>::iterator i = result.begin(); i != result.end(); i++)
-	{
+	for (vector<int>::iterator i = result.begin(); i != result.end(); i++) {
 		cout << *i << ' ';
 	}
 	_getch();

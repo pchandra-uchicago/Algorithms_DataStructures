@@ -26,11 +26,7 @@ int main()
 	A.push_back(4);
 	A.push_back(3);
 	A.push_back(5);
-	A.push_back(2);
-	A.push_back(4);
-	A.push_back(4);
-	A.push_back(2);
-
+	
 	cout << "The odd occurences are " << getOddOccurences(A);
 	_getch();
 	return 0;

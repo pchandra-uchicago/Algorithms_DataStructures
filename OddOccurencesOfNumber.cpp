@@ -9,6 +9,7 @@ using namespace std;
 int getOddOccurences(vector<int> A) {
 	int result = 0;
 	for (int i = 0; i < (A.size()/A[0])-1; i++) {
+		/*Bitwise XOR operation of all elements gives us the odd occuring element*/
 		result = result ^ A[i];
 	}
 	return result;

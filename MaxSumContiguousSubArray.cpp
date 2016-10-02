@@ -8,33 +8,24 @@
 
 using namespace std;
 
-int maxSubArray(const vector<int> &A)
-{
+int maxSubArray(const vector<int> &A) {
 	int old_sum = 0; int new_sum = 0; int count = 0;
-	if (A.size() <= 1)
-	{
+	if (A.size() <= 1) {
 		return A[0];
 	}
-	for (int i = 0; i != A.size(); i++)
-	{
+	for (int i = 0; i != A.size(); i++) {
 		new_sum = new_sum + A[i];
-
-		if (old_sum < new_sum)
-		{
+		if (old_sum < new_sum) {
 			old_sum = new_sum;
 		}
-		else if (new_sum < 0)
-		{
+		else if (new_sum < 0) {
 			new_sum = 0;
 		}
-
-		if (A[i] < 0)
-		{
+		if (A[i] < 0) {
 			count++;
 		}
 	}
-	if (count == A.size())
-	{
+	if (count == A.size()) {
 		return *(max_element(A.begin(), A.end()));
 	}
 	return old_sum;	

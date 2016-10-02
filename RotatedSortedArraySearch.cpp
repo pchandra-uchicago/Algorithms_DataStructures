@@ -6,8 +6,7 @@
 
 using namespace std;
 
-int Search(const vector<int> &A, int B)
-{
+int Search(const vector<int> &A, int B) {
 	int low = 0, high = A.size() - 1, mid;
 
 	while (low <= high) {

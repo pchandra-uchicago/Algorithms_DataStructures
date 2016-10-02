@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int Search(const vector<int> &A, int B) {
+int circularArraySearch(const vector<int> &A, int B) {
 	int low = 0, high = A.size() - 1, mid;
 
 	while (low <= high) {
@@ -47,7 +47,7 @@ int main()
 	A.push_back(1);
 	A.push_back(2);
 
-	int result = Search(A, 6);
+	int result = circularArraySearch(A, 6);
 	_getch();
 	return 0;
 }

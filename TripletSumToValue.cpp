@@ -3,7 +3,6 @@
 #include<stdio.h>
 #include<vector>
 #include<algorithm>
-#include<utility>
 
 using namespace std;
 
@@ -34,7 +33,6 @@ int main()
 {
 	vector<int> A;
 	A.insert(A.end(), { 1,4, 45, 6, 10, 8 });
-
 	/* time complexity is O(n^2)*/
 	tripletSum(A, 22);
 	_getch();

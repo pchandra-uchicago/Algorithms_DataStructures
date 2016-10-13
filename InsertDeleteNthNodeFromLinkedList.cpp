@@ -1,8 +1,6 @@
 #include<iostream>
 #include<conio.h>
 #include<stdio.h>
-#include<vector>
-#include<algorithm>
 
 using namespace std;
 

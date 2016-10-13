@@ -6,44 +6,37 @@
 
 using namespace std;
 
-struct  Node
-{
+struct  Node {
 	int data;
 	Node* next;
 };
-
-void Insert(Node** head, int data, int n)
-{
+/* inserts node at Nth position*/
+void Insert(Node** head, int data, int n) {
 	Node* current = new Node();
 	current->data = data;
 	current->next = NULL;
-	if (n == 1)
-	{
+	if (n == 1) {
 		current->next = *head;
 		*head = current;
 		return;
 	}
 	Node* prev = *head;
-	for (int i = 0; i < n - 2; i++)
-	{
+	for (int i = 0; i < n - 2; i++)	{
 		prev = prev->next;
 	}
 	current->next = prev->next;
 	prev->next = current;	
 }
-
-void Delete(Node** head, int n)
-{
-	if (n == 1)
-	{
+/* delete node at Nth position*/
+void Delete(Node** head, int n) {
+	if (n == 1) {
 		Node* temp = *head;
 		*head = temp->next;
 		delete temp;
 		return;
 	}
 	Node *current = *head;
-	for (int i = 0; i < n - 2; i++)
-	{
+	for (int i = 0; i < n - 2; i++)	{
 		current = current->next;
 	}
 	Node *temp = current->next;
@@ -51,11 +44,9 @@ void Delete(Node** head, int n)
 	delete temp;
 }
 
-void Print(Node* head)
-{
+void Print(Node* head) {
 	Node * current = head;	
-	while (current != NULL)
-	{
+	while (current != NULL)	{
 		cout << current->data << '\t';
 		current = current->next;
 	}

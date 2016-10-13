@@ -3,48 +3,37 @@
 #include<stdio.h>
 
 using namespace std;
-
-struct  Node
-{
+struct  Node {
 	int data;
 	Node* next;
 };
 
-int length(Node* head)
-{
+int length(Node* head) {
 	int len = 0;
-	while (head != NULL)
-	{
+	while (head != NULL) {
 		head = head->next;
 		len++;
 	}
 	return len;
 }
 
-Node* getIntersectionNode(Node* listA, Node* listB)
-{
+Node* getIntersectionNode(Node* listA, Node* listB) {
 	int m = length(listA);
 	int n = length(listB);
-	if (m > n)
-	{
+	if (m > n) {
 		int d = m - n;
-		for (int i = 0; i < d; i++)
-		{
+		for (int i = 0; i < d; i++) {
 			listA = listA->next;
 		}
 	}
-	else if (n > m)
-	{
+	else if (n > m)	{
 		int d = n - m;
-		for (int i = 0; i < d; i++)
-		{
+		for (int i = 0; i < d; i++) {
 			listB = listB->next;
 		}
 	}	
-	while (listA != NULL && listB != NULL)
-	{
-		if (listA->data == listB->data)
-		{
+	while (listA != NULL && listB != NULL) {
+		if (listA->data == listB->data)	{
 			return listA;
 		}		
 		listA = listA->next;
@@ -53,20 +42,17 @@ Node* getIntersectionNode(Node* listA, Node* listB)
 	return NULL;
 }
 
-void Insert(Node** head, int data, int n)
-{
+void Insert(Node** head, int data, int n) {
 	Node* current = new Node();
 	current->data = data;
 	current->next = NULL;
-	if (n == 1)
-	{
+	if (n == 1) {
 		current->next = *head;
 		*head = current;
 		return;
 	}
 	Node* prev = *head;
-	for (int i = 0; i < n - 2; i++)
-	{
+	for (int i = 0; i < n - 2; i++)	{
 		prev = prev->next;
 	}
 	current->next = prev->next;

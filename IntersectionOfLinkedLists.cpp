@@ -7,7 +7,6 @@ struct  Node {
 	int data;
 	Node* next;
 };
-
 int length(Node* head) {
 	int len = 0;
 	while (head != NULL) {
@@ -16,7 +15,6 @@ int length(Node* head) {
 	}
 	return len;
 }
-
 Node* getIntersectionNode(Node* listA, Node* listB) {
 	int m = length(listA);
 	int n = length(listB);
@@ -41,7 +39,6 @@ Node* getIntersectionNode(Node* listA, Node* listB) {
 	}
 	return NULL;
 }
-
 void Insert(Node** head, int data, int n) {
 	Node* current = new Node();
 	current->data = data;
@@ -58,7 +55,6 @@ void Insert(Node** head, int data, int n) {
 	current->next = prev->next;
 	prev->next = current;
 }
-
 int main()
 {
 	Node* head1 = NULL;

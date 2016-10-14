@@ -4,73 +4,60 @@
 
 using namespace std;
 
-struct  Node
-{
+struct  Node {
 	int data;
 	Node* next;
 };
 
-void Insert(Node** head, int data, int n)
-{
+void Insert(Node** head, int data, int n) {
 	Node* current = new Node();
 	current->data = data;
 	current->next = NULL;
-	if (n == 1)
-	{
+	if (n == 1) {
 		current->next = *head;
 		*head = current;
 		return;
 	}
 	Node* prev = *head;
-	for (int i = 0; i < n - 2; i++)
-	{
+	for (int i = 0; i < n - 2; i++)	{
 		prev = prev->next;
 	}
 	current->next = prev->next;
 	prev->next = current;
 }
 
-Node* mergeTwoLists(Node* A, Node* B)
-{
+Node* mergeTwoLists(Node* A, Node* B) {
 	if (A == NULL) return B;
 	if (B == NULL) return A;
 
 	Node* listA = A; Node* listB = B; Node* sortedHead = NULL;	
-	if (listA->data < listB->data)
-	{
+	if (listA->data < listB->data) {
 		sortedHead = listA;
 		listA = listA->next;
 	}
-	else 
-	{
+	else {
 		sortedHead = listB;
 		listB = listB->next;
 	}
 	Node* sortedList = sortedHead;
-	while (listA != NULL && listB != NULL)
-	{
-		if (listA->data < listB->data)
-		{
+	while (listA != NULL && listB != NULL) {
+		if (listA->data < listB->data) {
 			sortedList->next = listA;							
 			listA = listA->next;			
 		}
-		else 
-		{
+		else {
 			sortedList->next = listB;							
 			listB = listB->next;			
 		}
 		sortedList = sortedList->next;
 	}	
 	/*add the leftover elements*/
-	if (listA)
-	{
+	if (listA) {
 		sortedList->next = listA;
 	}
-	else
-	{
+	else {
 		sortedList->next = listB;
 	}
-
 	return sortedHead;
 }
 

@@ -44,8 +44,8 @@ Node* addTwoNumbers(Node* A, Node* B) {
 	}
 	std::reverse(strA.begin(), strA.end());
 	std::reverse(strB.begin(), strB.end());
-	string sum = to_string(stoi(accumulate(strA.begin(), strA.end(), string(""))) + 
-							stoi(accumulate(strB.begin(), strB.end(), string(""))));
+	string sum = to_string(stoll(accumulate(strA.begin(), strA.end(), string(""))) + 
+							stoll(accumulate(strB.begin(), strB.end(), string(""))));
 	reverse(sum.begin(), sum.end());
 
 	Node* head = NULL;

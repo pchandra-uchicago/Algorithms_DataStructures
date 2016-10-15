@@ -52,12 +52,10 @@ Node* mergeTwoLists(Node* A, Node* B) {
 		sortedList = sortedList->next;
 	}	
 	/*add the leftover elements*/
-	if (listA) {
-		sortedList->next = listA;
-	}
-	else {
-		sortedList->next = listB;
-	}
+	if (listA)
+		sortedList->next = listA;	
+	else 
+		sortedList->next = listB;	
 	return sortedHead;
 }
 

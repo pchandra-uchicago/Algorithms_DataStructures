@@ -8,6 +8,7 @@
 
 using namespace std;
 
+/*returns the index of anagrams as 2-d array*/
 vector<vector<int> > anagrams_indexAsVectors(const vector<string> &A) {
 	unordered_map<string, vector<int> > anagrams; int indexCount = 1;
 	for (auto i = A.begin(); i != A.end(); i++) {
@@ -30,7 +31,7 @@ vector<vector<int> > anagrams_indexAsVectors(const vector<string> &A) {
 	}
 	return result;
 }
-
+/*returns anagrams as a vector of strings*/
 vector<string> anagrams_string(vector<string> &strs) {
 	unordered_map<string, vector<string> > sortedToString;
 	for (auto it = strs.begin(); it != strs.end(); it++) {

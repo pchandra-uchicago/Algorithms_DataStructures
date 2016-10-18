@@ -5,37 +5,30 @@
 #include<algorithm>
 
 using namespace std;
-
-struct  Node
-{
+struct  Node {
 	int data;
 	Node* next;
 };
 
-void Insert(Node** head, int data, int n)
-{
+void Insert(Node** head, int data, int n){
 	Node* current = new Node();
 	current->data = data;
 	current->next = NULL;
-	if (n == 1)
-	{
+	if (n == 1) {
 		current->next = *head;
 		*head = current;
 		return;
 	}
 	Node* prev = *head;
-	for (int i = 0; i < n - 2; i++)
-	{
+	for (int i = 0; i < n - 2; i++){
 		prev = prev->next;
 	}
 	current->next = prev->next;
 	prev->next = current;
 }
 
-void reverseLinkedList(Node** head, Node* p)
-{
-	if (p->next == NULL)
-	{
+void reverseLinkedList(Node** head, Node* p) {
+	if (p->next == NULL){
 		*head = p;
 		return;
 	}

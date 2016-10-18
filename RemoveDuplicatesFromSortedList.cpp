@@ -5,40 +5,32 @@
 #include<algorithm>
 
 using namespace std;
-
-struct  Node
-{
+struct  Node {
 	int data;
 	Node* next;
 };
 
-void Insert(Node** head, int data, int n)
-{
+void Insert(Node** head, int data, int n) {
 	Node* current = new Node();
 	current->data = data;
 	current->next = NULL;
-	if (n == 1)
-	{
+	if (n == 1) {
 		current->next = *head;
 		*head = current;
 		return;
 	}
 	Node* prev = *head;
-	for (int i = 0; i < n - 2; i++)
-	{
+	for (int i = 0; i < n - 2; i++) {
 		prev = prev->next;
 	}
 	current->next = prev->next;
 	prev->next = current;
 }
 
-Node* deleteDuplicates(Node* A)
-{
+Node* deleteDuplicates(Node* A) {
 	Node* head = A; 
-	while (head!= NULL)
-	{
-		while (head->next != NULL && head->data == head->next->data)
-		{
+	while (head!= NULL) {
+		while (head->next != NULL && head->data == head->next->data) {
 			head->next = head->next->next;
 		}
 		head = head->next;

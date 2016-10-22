@@ -5,16 +5,13 @@
 
 using namespace std;
 
-int binomialCoeff(int n, int k)
-{
+int binomialCoeff(int n, int k) {	
 	int** C = new int*[n+1];
 	for (int i = 0; i <= n; ++i)
 		C[i] = new int[k+1];
-
-	for (int i = 0; i <= n; i++)
-	{
-		for (int j = 0; j <= min(i,k); j++)
-		{
+	
+	for (int i = 0; i <= n; i++) {
+		for (int j = 0; j <= min(i,k); j++) {
 			if (j == 0 || j == i)
 				C[i][j] = 1;
 			else

@@ -3,16 +3,12 @@
 #include<stdio.h>
 #include<vector>
 #include<algorithm>
-#include<unordered_map>
-#include<iterator>
 
 using namespace std;
 
-int lengthOfLongestSubstring(string A)
-{
+int lengthOfLongestSubstring(string A) {
 	if (A.size() <= 1)
-		return A.size();
-	
+		return A.size();	
 	char curChar, nextChar; vector<int> strLength; int currIndex = 0; bool flag = true;	
 	for (int i = 1; i < A.size(); i++) {
 		nextChar = A[i];
@@ -21,17 +17,18 @@ int lengthOfLongestSubstring(string A)
 			if (curChar == nextChar) {				
 				if (i != A.size() - 1) {
 					strLength.push_back(i - currIndex);
+					/*if the reptitive char are adjacent to each other*/
 					if (i == j + 1)
 						currIndex = i;
 					else
 						currIndex = j + 1;
 				}
-				else {
-					flag = false;
-				}									
+				else 
+					flag = false;													
 				break;
 			}			
 		}
+		/*decide if the last character needs to be counted or not*/
 		if (i == A.size()-1) {
 			if (flag)			
 				strLength.push_back(i - currIndex + 1);			

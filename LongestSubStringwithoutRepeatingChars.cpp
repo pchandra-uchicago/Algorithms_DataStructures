@@ -39,10 +39,8 @@ int lengthOfLongestSubstring(string A) {
 	return *(max_element(strLength.begin(), strLength.end()));
 }
 
-int main()
-{
+int main() {
 	string str = "dadbc";
-	int temp = str.length();
 	int len = lengthOfLongestSubstring(str);
 	_getch();
 	return 0;	

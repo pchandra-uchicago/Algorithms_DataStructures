@@ -17,7 +17,7 @@ int lengthOfLongestSubstring(string A) {
 			if (curChar == nextChar) {				
 				if (i != A.size() - 1) {
 					strLength.push_back(i - currIndex);
-					/*if the reptitive char are adjacent to each other*/
+					/*if the reptitive chars are adjacent to each other*/
 					if (i == j + 1)
 						currIndex = i;
 					else

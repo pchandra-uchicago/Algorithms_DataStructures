@@ -26,8 +26,8 @@ int longestCommonSubsequence(char *A, char *B, int m, int n) {
 
 int main()
 {
-	char A[] = "AGGTAB";
-	char B[] = "GXTXAYB";
+	char A[] = "BULLBULL";
+	char B[] = "BUBEARULL";
 	int length = longestCommonSubsequence(A, B, strlen(A), strlen(B));
 	_getch();
 	return 0;

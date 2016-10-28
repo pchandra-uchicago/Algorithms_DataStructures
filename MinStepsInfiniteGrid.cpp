@@ -7,86 +7,55 @@
 
 using namespace std;
 
-int coverPoints(vector<int> &X, vector<int> &Y)
-{
-	int stepCount = 0;
-	int startPointX = X.front(); int startPointY = Y.front();
-
+int coverPoints(vector<int> &X, vector<int> &Y) {
+	int stepCount = 0; int startPointX = X.front(); int startPointY = Y.front();
 	vector<int>::iterator i = X.begin() ; vector<int>::iterator j = Y.begin();
 	*i++; *j++;
 
-	while (i != X.end())
-	{
-		while (*i != startPointX || *j != startPointY)
-		{
-			if (*i > startPointX)
-			{
-				if (*j > startPointY)
-				{
+	while (i != X.end()) {
+		while (*i != startPointX || *j != startPointY) {
+			if (*i > startPointX) {
+				if (*j > startPointY){
 					startPointX++;
-					startPointY++;
-					stepCount++;
+					startPointY++;					
 				}
-				else if (*j < startPointY)
-				{
+				else if (*j < startPointY) {
 					startPointX++;
-					startPointY--;
-					stepCount++;
+					startPointY--;					
 				}
-				else
-				{
-					startPointX++;
-					stepCount++;
-				}
+				else 
+					startPointX++;									
 			}
-			else if (*i < startPointX)
-			{
-				if (*j > startPointY)
-				{
+			else if (*i < startPointX) {
+				if (*j > startPointY) {
 					startPointX--;
-					startPointY++;
-					stepCount++;
+					startPointY++;					
 				}
-				else if (*j < startPointY)
-				{
+				else if (*j < startPointY) {
 					startPointX--;
-					startPointY--;
-					stepCount++;
+					startPointY--;					
 				}
-				else
-				{
-					startPointX--;
-					stepCount++;
-				}
+				else 
+					startPointX--;								
 			}
-			else if (*i == startPointX)
-			{
-				if (*j > startPointY)
-				{
-					startPointY++;
-					stepCount++;
-				}
-				else if (*j < startPointY)
-				{
-					startPointY--;
-					stepCount++;
-				}
+			else if (*i == startPointX) {
+				if (*j > startPointY) 
+					startPointY++;				
+				else if (*j < startPointY) 
+					startPointY--;				
 			}
+			stepCount++;
 		}
 		*i++; *j++;
 	}
 	return stepCount;
 }
 
-int coverPointsSoln(vector<int> x, vector<int> y) 
-{
+int coverPointsSoln(vector<int> x, vector<int> y) {
 	if (x.size() <= 1) return 0;
-
 	assert(x.size() == y.size());
-
 	int stepCount = 0;
-	for (int i = 1; i < x.size(); i++) 
-	{
+	for (int i = 1; i < x.size(); i++)  {
 		stepCount += max(abs(x[i] - x[i - 1]), abs(y[i] - y[i - 1]));
 	}
 	return stepCount;

@@ -5,13 +5,11 @@
 #include<algorithm>
 
 using namespace std;
-
 struct Node {
 	char data;
 	Node* left;
 	Node* right;
 };
-
 Node* getNewNode(int data) {
 	Node* root = new Node();
 	root->left = NULL;
@@ -19,9 +17,7 @@ Node* getNewNode(int data) {
 	root->data = data;
 	return root;
 }
-
-Node* Insert(Node* root, int data)
-{
+Node* Insert(Node* root, int data) {
 	if (root == NULL) {
 		root = getNewNode(data);
 		return root;
@@ -32,9 +28,7 @@ Node* Insert(Node* root, int data)
 		root->right = Insert(root->right, data);
 	return root;
 }
-
-vector<int> postOrderTraversal(Node* root)
-{
+vector<int> postOrderTraversal(Node* root) {
 	vector<int> result;
 	if (root == NULL) return result;
 	postOrderTraversal(root->left);
@@ -45,7 +39,6 @@ vector<int> postOrderTraversal(Node* root)
 
 int main()
 {
-	Node* root = NULL;
 	Node* root = NULL;
 	root = Insert(root, 15);
 	root = Insert(root, 10);

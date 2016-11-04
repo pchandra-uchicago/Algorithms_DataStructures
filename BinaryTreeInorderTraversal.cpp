@@ -18,7 +18,6 @@ Node* getNewNode(int data) {
 	root->data = data;
 	return root;
 }
-
 Node* Insert(Node* root, int data) {
 	if (root == NULL) {
 		root = getNewNode(data);
@@ -30,7 +29,6 @@ Node* Insert(Node* root, int data) {
 		root->right = Insert(root->right, data);
 	return root;
 }
-
 vector<int> inOrderTraversal(Node* root) {
 	vector<int> result;
 	if (root == NULL) return result;

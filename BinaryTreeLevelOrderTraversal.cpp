@@ -6,7 +6,6 @@
 #include<algorithm>
 
 using namespace std;
-
 struct Node {
 	char data;
 	Node* left;
@@ -21,8 +20,7 @@ Node* getNewNode(int data) {
 	return root;
 }
 
-Node* Insert(Node* root, int data)
-{
+Node* Insert(Node* root, int data) {
 	if (root == NULL) {
 		root = getNewNode(data);
 		return root;
@@ -34,8 +32,7 @@ Node* Insert(Node* root, int data)
 	return root;
 }
 
-vector<char> levelOrderTraversal(Node* root)
-{
+vector<char> levelOrderTraversal(Node* root) {
 	vector<char> result;
 	if (root == NULL) return result;
 	queue<Node*> q;

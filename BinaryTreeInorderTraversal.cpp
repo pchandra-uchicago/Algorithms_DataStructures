@@ -5,7 +5,6 @@
 #include<algorithm>
 
 using namespace std;
-
 struct Node {
 	char data;
 	Node* left;
@@ -20,8 +19,7 @@ Node* getNewNode(int data) {
 	return root;
 }
 
-Node* Insert(Node* root, int data)
-{
+Node* Insert(Node* root, int data) {
 	if (root == NULL) {
 		root = getNewNode(data);
 		return root;
@@ -33,8 +31,7 @@ Node* Insert(Node* root, int data)
 	return root;
 }
 
-vector<int> inOrderTraversal(Node* root)
-{
+vector<int> inOrderTraversal(Node* root) {
 	vector<int> result;
 	if (root == NULL) return result;
 	inOrderTraversal(root->left);
@@ -51,6 +48,7 @@ int main()
 	root = Insert(root, 10);
 	root = Insert(root, 20);
 	root = Insert(root, 30);
+	vector<int> result = inOrderTraversal(root);
 	_getch();
 	return 0;
 }

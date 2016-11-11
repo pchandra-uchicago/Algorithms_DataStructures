@@ -6,7 +6,6 @@
 #include<algorithm>
 
 using namespace std;
-
 struct Node {
 	char data;
 	Node* left;
@@ -21,8 +20,7 @@ Node* getNewNode(int data) {
 	return root;
 }
 
-Node* Insert(Node* root, int data)
-{
+Node* Insert(Node* root, int data) {
 	if (root == NULL) {
 		root = getNewNode(data);
 		return root;
@@ -33,7 +31,6 @@ Node* Insert(Node* root, int data)
 		root->right = Insert(root->right, data);
 	return root;
 }
-
 
 int maxDepth(Node* root) {
 	if (root == NULL) return 0;
@@ -47,6 +44,7 @@ int main()
 	root = Insert(root, 10);
 	root = Insert(root, 20);
 	root = Insert(root, 30);
+	cout<<" The maxdepth is :" << maxDepth(root);
 	_getch();
 	return 0;
 }

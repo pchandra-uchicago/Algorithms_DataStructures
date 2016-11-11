@@ -6,7 +6,6 @@
 #include<algorithm>
 
 using namespace std;
-
 struct Node {
 	char data;
 	Node* left;
@@ -32,7 +31,6 @@ Node* Insert(Node* root, int data) {
 		root->right = Insert(root->right, data);
 	return root;
 }
-
 
 int minDepth(Node* root) {
 	if (root == NULL) return 0;

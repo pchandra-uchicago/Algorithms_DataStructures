@@ -5,7 +5,6 @@
 #include<algorithm>
 
 using namespace std;
-
 struct Node {
 	char data;
 	Node* left;
@@ -34,8 +33,7 @@ Node* Insert(Node* root, int data) {
 	return root;
 }
 
-void paths(Node* root, int sum, vector<vector<int> > &allPaths, vector<int> &path)
-{
+void paths(Node* root, int sum, vector<vector<int> > &allPaths, vector<int> &path) {
 	if (root == NULL) return;
 	if ((root->left == NULL && root->right == NULL) && (sum - root->data == 0)) {
 		path.push_back(root->data);
@@ -51,8 +49,7 @@ void paths(Node* root, int sum, vector<vector<int> > &allPaths, vector<int> &pat
 	return;
 }
 
-vector<vector<int> > allPathSum(Node* root, int sum)
-{
+vector<vector<int> > allPathSum(Node* root, int sum) {
 	vector<vector<int> > allPaths; vector<int> path;
 	paths(root, sum, allPaths,path);
 	return allPaths;

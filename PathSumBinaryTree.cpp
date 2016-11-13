@@ -6,7 +6,6 @@
 #include<algorithm>
 
 using namespace std;
-
 struct Node {
 	char data;
 	Node* left;

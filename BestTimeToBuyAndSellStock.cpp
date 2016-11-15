@@ -26,7 +26,7 @@ void maxProfit(const vector<int> &A) {
 		buySell.push_back(index);
 	}
 	for (auto it = buySell.begin(); it != buySell.end(); it++) {
-		cout << "Buy on Day:" << it->first << " Sell on Day:" << it->second << "\n";
+		cout << "Buy on Day:" << it->first+1 << " Sell on Day:" << it->second+1 << "\n";
 	}
 }
 

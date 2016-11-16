@@ -4,8 +4,7 @@
 #include<algorithm>
 
 using namespace std;
-struct Node
-{
+struct Node {
 	int data;
 	Node* next;
 };

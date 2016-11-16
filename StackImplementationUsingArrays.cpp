@@ -7,8 +7,7 @@
 int top = -1;
 using namespace std;
 
-void push(int x, int *A, int size)
-{
+void push(int x, int *A, int size) {
 	if (top == size - 1) {
 		cout << "Error: Stack Overflow";
 		return;

@@ -25,13 +25,10 @@ void Insert(Node** head, int data, int n) {
 	prev->next = current;
 }
 
-Node* middleElement(Node* head)
-{
+Node* middleElement(Node* head) {
 	Node* slow_ptr = head; Node* fast_ptr = head; int count = 0;
-	if (head != NULL)
-	{
-		while (fast_ptr != NULL && fast_ptr->next != NULL)
-		{
+	if (head != NULL) {
+		while (fast_ptr != NULL && fast_ptr->next != NULL) {
 			slow_ptr = slow_ptr->next;
 			fast_ptr = fast_ptr->next->next;
 			count++;

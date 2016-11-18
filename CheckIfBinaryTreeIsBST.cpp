@@ -30,13 +30,6 @@ Node* Insert(Node* root, int data) {
 	return root;
 }
 
-bool search(Node* root, int data) {
-	if (root == NULL) return false;
-	else if (root->data == data) return true;
-	else if (data <= root->data) return search(root->left, data);
-	else return search(root->right, data);
-}
-
 bool isBSTUtil(Node* root, int minVal, int maxVal) {
 	if (root == NULL) return true;
 	if (root->data > minVal && root->data < maxVal

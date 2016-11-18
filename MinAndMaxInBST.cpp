@@ -3,9 +3,7 @@
 #include<stdio.h>
 
 using namespace std;
-
-struct Node
-{
+struct Node {
 	Node* left;
 	Node* right;
 	int data;
@@ -30,22 +28,19 @@ Node* Insert(Node* root, int data) {
 	return root;
 }
 
-int findMin(Node* root)
-{	
+int findMin(Node* root) {	
 	if (root == NULL) return -1;
 	while (root->left != NULL) root = root->left;
 	return root->data;
 }
 
-int findMinRecursion(Node* root)
-{
+int findMinRecursion(Node* root) {
 	if (root == NULL) return -1;
 	else if (root->left == NULL) return root->data;
 	else return findMinRecursion(root->left);	
 }
 
-int findMax(Node* root)
-{
+int findMax(Node* root) {
 	if (root == NULL) return -1;
 	while (root->right != NULL)	root = root->right;
 	return root->data;

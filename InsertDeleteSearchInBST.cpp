@@ -4,9 +4,7 @@
 #include<algorithm>
 
 using namespace std;
-
-struct Node
-{
+struct Node {
 	Node* left;
 	Node* right;
 	int data;
@@ -20,13 +18,9 @@ Node* getNewNode(int data) {
 	return root;
 }
 
-Node* findMin(Node* root)
-{
+Node* findMin(Node* root) {
 	if (root == NULL) return root;
-	while (root->left != NULL)
-	{
-		root = root->left;
-	}
+	while (root->left != NULL) root = root->left;
 	return root;
 }
 
@@ -42,41 +36,30 @@ Node* Insert(Node* root, int data) {
 	return root;
 }
 
-bool search(Node* root, int data)
-{
+bool search(Node* root, int data) {
 	if (root == NULL) return false;
 	else if (root->data == data) return true;
 	else if (data <= root->data) return search(root->left, data);
 	else return search(root->right, data);
 }
 
-Node* deleteNode(Node* root, int data)
-{
+Node* deleteNode(Node* root, int data) {
 	if (root == NULL) return root;
-	else if(data < root->data)
-	{
-		root->left = deleteNode(root->left, data);
-	}
-	else if (data > root->data)
-	{
-		root->right = deleteNode(root->right, data);
-	}
+	else if(data < root->data) root->left = deleteNode(root->left, data);
+	else if (data > root->data) root->right = deleteNode(root->right, data);
 	else
 	{
-		if (root->left == NULL && root->right == NULL)
-		{
+		if (root->left == NULL && root->right == NULL) {
 			delete root;
 			root = NULL;			
 		}
-		else if(root->left == NULL || root->right == NULL)
-		{
+		else if(root->left == NULL || root->right == NULL) {
 			Node* temp = root;
 			if (root->left == NULL) root = root->right;
 			else root = root->left;
 			delete temp;			
 		}
-		else 
-		{
+		else {
 			Node* temp = findMin(root->right);
 			root->data = temp->data;
 			root->right = deleteNode(root->right, temp->data);

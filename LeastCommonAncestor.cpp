@@ -44,6 +44,7 @@ Node* search(Node* root, int data) {
 	else return search(root->right, data);
 }
 
+/* time complexity O(hlogh) h is the height of tree and space complexity is O(1)*/
 Node* leastCommonAncestor(Node* root, int n1, int n2) {
 	unordered_map<Node*, int> ancestors;
 	Node* node1 = search(root, n1);

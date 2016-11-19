@@ -8,8 +8,7 @@
 
 using namespace std;
 
-class Graph
-{
+class Graph {
 	private:int V;
 			list<int> *adj;
 	public: Graph(int V);
@@ -17,33 +16,27 @@ class Graph
 			void breadthFirstSearch(int source);
 };
 
-Graph::Graph(int V)
-{
+Graph::Graph(int V) {
 	this->V = V;
 	adj = new list<int>[V];
 }
 
-void Graph::addEdge(int v, int w)
-{
+void Graph::addEdge(int v, int w) {
 	adj[v].push_back(w); 
 }
 
-void Graph::breadthFirstSearch(int source)
-{
+void Graph::breadthFirstSearch(int source) {
 	vector<bool> visited(V);
 	visited.assign(V, false);
 	queue<int> q;
 	visited[source] = true;
 	q.push(source);
-	while (!q.empty())
-	{
+	while (!q.empty()) {
 		source = q.front();
 		cout << source << " ";
 		q.pop();
-		for (auto it = adj[source].begin(); it != adj[source].end(); it++)
-		{
-			if (!visited[*it])
-			{
+		for (auto it = adj[source].begin(); it != adj[source].end(); it++) {
+			if (!visited[*it]) {
 				visited[*it] = true;
 				q.push(*it);
 			}

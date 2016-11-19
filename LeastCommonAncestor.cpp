@@ -5,8 +5,7 @@
 #include<algorithm>
 
 using namespace std;
-struct Node
-{
+struct Node {
 	Node* left;
 	Node* right;
 	Node* parent;
@@ -38,26 +37,22 @@ Node* Insert(Node* root, int data) {
 	return root;
 }
 
-Node* search(Node* root, int data)
-{
+Node* search(Node* root, int data) {
 	if (root == NULL) return root;
 	if (data == root->data) return root;
 	else if (data <= root->data) return search(root->left, data);
 	else return search(root->right, data);
 }
 
-Node* leastCommonAncestor(Node* root, int n1, int n2)
-{
+Node* leastCommonAncestor(Node* root, int n1, int n2) {
 	unordered_map<Node*, int> ancestors;
 	Node* node1 = search(root, n1);
 	Node* node2 = search(root, n2);
-	while (node1 != NULL)
-	{
+	while (node1 != NULL) {
 		ancestors[node1] = node1->data;
 		node1 = node1->parent;
 	}
-	while (n2 != NULL)
-	{
+	while (n2 != NULL) {
 		if (ancestors.find(node2) != ancestors.end()) return node2;
 		node2 = node2->parent;
 	}

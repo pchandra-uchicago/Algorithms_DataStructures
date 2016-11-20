@@ -47,6 +47,7 @@ bool Graph::isCyclic() {
 	return false;
 }
 
+/* Time complexity is O(V+E)*/
 int main()
 {
 	Graph g(4);

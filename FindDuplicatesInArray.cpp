@@ -4,8 +4,7 @@
 
 using namespace std;
 
-void findDuplicates(int *arr, int size)
-{
+void findDuplicates(int *arr, int size) {
 	cout<<"duplicates elements are: ";
 	for (int i = 0; i < size; i++) {
 		if (arr[abs(arr[i])] >= 0)

@@ -35,9 +35,8 @@ Node* Insert(Node* root, int data) {
 }
 
 int hasPathSum(Node* A, int sum) {
-	if (A== NULL || (sum - (A->data)) < 0) return 0;
-	if ((A->left == NULL &&  A->right == NULL) && (sum - A->data == 0)) return 1;
-	if ((A->left != NULL || A->right != NULL) && sum == 0) return 0;
+	if (A== NULL) return 0;
+	if (A->left == NULL &&  A->right == NULL) return sum == root->val;
 	int remSum =sum - A->data;
 	return hasPathSum(A->left, remSum) || hasPathSum(A->right, remSum);
 }

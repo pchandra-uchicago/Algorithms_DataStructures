@@ -8,36 +8,30 @@
 
 using namespace std;
 
-class Graph
-{
-private:int V;
+class Graph {
+	private:int V;
 		list<int> *adj;	
 		bool isCyclicUtility(int v, vector<bool> visited, vector<bool> recursionStack);
-public: Graph(int V);
+	public: Graph(int V);
 		void addEdge(int v, int w);
 		bool isCyclic();
 };
 
-Graph::Graph(int V)
-{
+Graph::Graph(int V) {
 	this->V = V;
 	adj = new list<int>[V];
 }
 
-void Graph::addEdge(int v, int w)
-{
+void Graph::addEdge(int v, int w) {
 	adj[v].push_back(w);	
 }
 
-bool Graph::isCyclicUtility(int v, vector<bool> visited, vector<bool> recursionStack)
-{
-	if (visited[v] == false)
-	{
+bool Graph::isCyclicUtility(int v, vector<bool> visited, vector<bool> recursionStack) {
+	if (visited[v] == false) {
 		/*mark the current node as visited and add it to recursion stack*/
 		visited[v] = true;
 		recursionStack[v] = true;
-		for (auto it = adj[v].begin(); it != adj[v].end(); it++)
-		{
+		for (auto it = adj[v].begin(); it != adj[v].end(); it++) {
 			if (!visited[*it] && isCyclicUtility(*it, visited, recursionStack))	return true;
 			else if (recursionStack[*it]) return true;
 		}
@@ -46,8 +40,7 @@ bool Graph::isCyclicUtility(int v, vector<bool> visited, vector<bool> recursionS
 	return false;
 }
 
-bool Graph::isCyclic()
-{
+bool Graph::isCyclic() {
 	vector<bool> visited(V); vector<bool> recursionStack(V);
 	visited.assign(V, false); recursionStack.assign(V,false);
 	for (int i = 0; i < V; i++)

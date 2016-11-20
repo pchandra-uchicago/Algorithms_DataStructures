@@ -7,19 +7,17 @@
 
 using namespace std;
 
-class StackMinMax
-{
+class StackMinMax {
 	private: stack<int> minstack;
-			 stack<int> maxstack;
-			 stack<int> basestack;
+		 stack<int> maxstack;
+		 stack<int> basestack;
 	public:	void push(int value);
-			int pop();
-			int findMin();
-			int findMax();
+		int pop();
+		int findMin();
+		int findMax();
 };
 
-void StackMinMax::push(int value)
-{
+void StackMinMax::push(int value) {
 	int tmin = findMin();
 	int tmax = findMax();
 	if (value <= findMin())	minstack.push(value);
@@ -27,8 +25,7 @@ void StackMinMax::push(int value)
 	basestack.push(value);
 }
 
-int StackMinMax::pop()
-{
+int StackMinMax::pop() {
 	int popped = basestack.top();
 	basestack.pop();
 	if (popped == findMin()) minstack.pop();
@@ -36,14 +33,12 @@ int StackMinMax::pop()
 	return popped;
 }
 
-int StackMinMax::findMin()
-{
+int StackMinMax::findMin() {
 	if (minstack.empty()) return INT_MAX;
 	else return minstack.top();
 }
 
-int StackMinMax::findMax()
-{
+int StackMinMax::findMax() {
 	if (maxstack.empty()) return INT_MIN;
 	else return maxstack.top();
 }

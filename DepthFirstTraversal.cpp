@@ -7,29 +7,25 @@
 
 using namespace std;
 
-class Graph
-{
+class Graph {
 	private:int V;
-			list<int> *adj;
-			void dfsUtility(int v, bool visited[]);
+		list<int> *adj;
+		void dfsUtility(int v, bool visited[]);
 	public: Graph(int V);
-			void addEdge(int v, int w);
-			void depthFirstSearch(int v);		
+		void addEdge(int v, int w);
+		void depthFirstSearch(int v);		
 };
 
-Graph::Graph(int V)
-{
+Graph::Graph(int V) {
 	this->V = V;
 	adj = new list<int>[V];
 }
 
-void Graph::addEdge(int v, int w)
-{
+void Graph::addEdge(int v, int w) {
 	adj[v].push_back(w);
 }
 
-void Graph::dfsUtility(int v, bool visited[])
-{
+void Graph::dfsUtility(int v, bool visited[]) {
 	// Mark the current node as visited and print it
 	visited[v] = true;
 	cout << v << " ";
@@ -40,8 +36,7 @@ void Graph::dfsUtility(int v, bool visited[])
 			dfsUtility(*i, visited);
 }
 
-void Graph::depthFirstSearch(int v)
-{
+void Graph::depthFirstSearch(int v) {
 	// Mark all the vertices as not visited
 	bool *visited = new bool[V];
 	for (int i = 0; i < V; i++)

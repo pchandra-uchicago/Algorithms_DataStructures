@@ -6,8 +6,7 @@
 
 using namespace std;
 
-char findTheDifference(string s, string t)
-{
+char findTheDifference(string s, string t) {
 	int i = 0; int sum1 = 0, sum2 = 0;
 	while (i != s.size()) {
 		sum1 += s[i];

@@ -5,6 +5,7 @@
 
 using namespace std;
 
+/*in place reversal of string */
 string reverseString(string s) {
 	int i = 0; int j = s.size() - 1;
 	while(i < j) {

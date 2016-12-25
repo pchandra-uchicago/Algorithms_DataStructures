@@ -1,3 +1,15 @@
+/*   4
+   /   \    
+  2     7
+ / \   / \
+1   3 6   9    
+
+to 
+     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9*/
 #include<iostream>
 #include<conio.h>
 #include<stdio.h>

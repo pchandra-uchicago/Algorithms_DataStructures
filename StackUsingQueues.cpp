@@ -18,8 +18,8 @@ public:
     void pop() {
         if(q1.empty()) return;
         if (q1.size() == 1) {
-			q1.pop(); 
-			return;
+		q1.pop(); 
+		return;
 	}
         queue<int> q2; int count = 0;
         while(count < q1.size()) {

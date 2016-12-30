@@ -1,3 +1,6 @@
+/*Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.
+Please note that the string does not contain any non-printable characters. 
+Input: "Hello, my name is John"  Output: 5*/
 #include<iostream>
 #include<conio.h>
 #include<stdio.h>
@@ -22,10 +25,6 @@ int countSegments(string s) {
 	}
 	if (prevChar == ' ') return count;
 	return count+1;
-}
-
-int countStringSegments(string s) {
-
 }
 
 int main()

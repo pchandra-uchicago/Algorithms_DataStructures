@@ -14,7 +14,7 @@ For example : Secret number:  "1807" Friend's guess: "7810"  Hint: 1 bull and 3 
 
 using namespace std;
 
-string getHint1(string secret, string guess) {
+string getHintAux(string secret, string guess) {
 	if (secret.size() != guess.size() || secret.empty()) return "0A0B"; 
 	string result; unordered_map<char, vector<int>> order; 
 	for (int i = 0; i < secret.size(); i++) {
@@ -25,7 +25,7 @@ string getHint1(string secret, string guess) {
 			positions.push_back(i);
 			order.insert(pair<char, vector<int>>(secret[i], positions));
 	}
-	vector<int> pos;  int bulls = 0, cows = 0;
+	vector<int> pos;  vector<int> gVec(10, 0); int bulls = 0, cows = 0;	
 	for (int i = 0; i < guess.size(); i++) {
 		if (order.count(guess[i])) {
 			pos = order.find(guess[i])->second;
@@ -34,12 +34,13 @@ string getHint1(string secret, string guess) {
 				pos.erase(std::remove(pos.begin(), pos.end(), i), pos.end());
 				order[guess[i]] = pos;
 			}				
-			else
-				cows++;			
+			else				
+				gVec[guess[i] - '0']++;
 		}
 	}
-	result = to_string(bulls) + "A" + to_string(cows) + "B";
-	return result;
+	for (int i = 0; i < gVec.size(); i++)
+		cows += min(gVec[i], int(order[i + '0'].size()));
+	return to_string(bulls) + "A" + to_string(cows) + "B";	
 }
 
 string getHint(string secret, string guess) {
@@ -67,7 +68,7 @@ string getHint(string secret, string guess) {
 
 int main()
 {
-	string result = getHint1("1123", "0111");
+	string result = getHintAux("1123", "0111");
 	cout << " Hint is : " << result;
 	_getch();
 	return 0;
